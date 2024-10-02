@@ -1,0 +1,17 @@
+
+{
+    "blogs" : [
+        {
+            "title":"My First Blog",
+            "body": "Why do we use it ? \nIt",
+            "author":"Hosea",
+            "id": 1
+        },
+        {
+            "title":"Hosea work list",
+            "body": "Why do we use it ? \nIt",
+            "author":"hillary",
+            "id": 2
+        }
+    ]
+}
