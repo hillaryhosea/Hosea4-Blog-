@@ -5,6 +5,7 @@ function Home() {
 
     const [blogs, setBlogs] = useState([]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true)
 
     function handleDelete (id) {
       const newBlogs = blogs.filter(blog => blog.id !== id);
@@ -12,29 +13,39 @@ function Home() {
     }
 
     useEffect (()=>{
-      const fetchData = async () =>{
+    
+      setTimeout(() => {
+        const fetchData = async () =>{
         
-        try{
-          const response = await fetch ("http://localhost:8000/blogs");
-          if (!response.ok){
-            throw new Error("response was not ok");
+          try{
+            const response = await fetch ("http://localhost:8000/blogs");
+            if (!response.ok){
+              throw new Error("could not fetch data from the end point check the url and try again ");
+              
+            }
+            const result = await response.json();
+            setBlogs(result);
+            setLoading(false)
             
-          }
-          const result = await response.json();
-          setBlogs(result);
+          } catch (error){
+          setError(error.message)
+          console.log(error.message);
           
-        } catch (error){
-        setError(error)
+          setLoading(false)
+          }
         }
-      }
-      
       fetchData();
+
+      }, 1000);
+      
     },[]);
    
 
   return (
     <div className='content'>
-   { blogs && <BlogList blogs={blogs} Title="All Blogs" handleDelete={handleDelete} /> }
+    {error && <div> {error} </div>}
+    {loading && <div> loading... </div>}
+   { blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} /> }
     </div>
   )
 }
