@@ -28,6 +28,8 @@ const useFetch = (url) => {
       };
       fetchData();
     }, 1000);
+
+  
   }, [url]);
 
   return { datas, error, loading };

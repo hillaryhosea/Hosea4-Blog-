@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function BlogList({blogs, title, handleDelete}) {
   return (
@@ -7,9 +8,11 @@ function BlogList({blogs, title, handleDelete}) {
     {
         blogs.map(blog=>(
             <div className='blog-preview' key={blog.id}>
-                <h2>{ blog.title}</h2>
+               <Link to={`/blogs/${blog.id}`}>
+               <h2>{ blog.title}</h2>
                 <p>{blog.author}</p>
                 <button onClick={handleDelete(blog.id)}> Delete Blog</button>
+               </Link>
             </div>
         ))
     }
