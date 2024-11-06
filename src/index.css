@@ -83,5 +83,54 @@
 {
   margin: 20px 0;
 }
+.blog-details button
+{
+  color: #fff;
+  background-color: #f1356d;
+  padding: 6px ;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 0;
+}
 
+/* form style */
 
+.creat 
+{
+  text-align: center;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.creat label
+{
+  text-align: left;
+  display: block;
+}
+
+.creat h2
+{
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+
+.creat input, .creat textarea, .creat select
+{
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.creat button
+{
+  background-color: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius:5px;
+  cursor: pointer;
+}
